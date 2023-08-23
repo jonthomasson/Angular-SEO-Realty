@@ -14,6 +14,7 @@ export interface ResponseStatus {
 }
 
 export interface Property {
+  [key: string]: any;
   identifier: {
     Id: number;
     fips: string;

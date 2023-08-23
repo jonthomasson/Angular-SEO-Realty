@@ -1,1 +1,25 @@
-<p>detail works!</p>
+<div class="home-detail-container mt-4">
+  <div class="text-center">
+    <img [src]="home().summary?.mediumImageUrl" alt="Property Image" class="img-fluid rounded shadow">
+  </div>
+
+  <div class="mt-4 p-3 bg-light rounded shadow">
+    <div *ngFor="let key of objectKeys(home())">
+      <h4 class="text-primary text-uppercase">{{ key }}</h4>
+      <hr>
+      <div *ngFor="let innerKey of objectKeys(home()[key])">
+        <ng-container *ngIf="isObject((home())[key][innerKey]); else basicKeyValue">
+          <h5 class="text-secondary">{{ innerKey }}</h5>
+          <ul>
+            <li *ngFor="let deeperKey of objectKeys(home()[key][innerKey])">
+              <strong>{{ deeperKey }}:</strong> {{ home()[key][innerKey][deeperKey] }}
+            </li>
+          </ul>
+        </ng-container>
+        <ng-template #basicKeyValue>
+          <p><strong>{{ innerKey }}:</strong> {{ home()[key][innerKey] }}</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
