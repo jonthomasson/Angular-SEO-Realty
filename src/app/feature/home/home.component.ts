@@ -14,14 +14,13 @@ import { Property } from '../../interfaces/home';
 })
 export class HomeComponent implements OnInit {
   homes = this.homeService.homesWithPrices;
-  featured = {} as Property;
   featuredHome = computed(() => {
     const randomIndex = Math.floor(Math.random() * this.homes()?.length);
-    if (randomIndex) {
+   /* if (randomIndex) {*/
       return this.homes()[randomIndex];
-    }
+    //}
 
-    return {} as Property;
+    /*return {} as Property;*/
     
   })
 

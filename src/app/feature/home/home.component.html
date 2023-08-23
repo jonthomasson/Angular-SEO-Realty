@@ -1,20 +1,20 @@
-<div *ngIf="featuredHome()" routerLink="detail/{{featuredHome().identifier.Id}}" class="container my-5 featured">
+<div class="container my-5 featured">
   <h1 class="text-center mb-5">Welcome to Super Home Deals!</h1>
 
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+  <div  class="jumbotron p-4 p-md-5 text-white rounded bg-dark" [routerLink]="['/detail', homes()[0].identifier.Id]">
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">Featured Home</h1>
       <p class="lead my-3">Discover the best deal of the week!</p>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <img src="{{featuredHome().summary?.tinyImageUrl}}" alt="Featured Home" class="img-fluid rounded">
+        <img src="{{homes()[0].summary?.tinyImageUrl}}" alt="Featured Home" class="img-fluid rounded">
       </div>
       <div class="col-md-6">
-        <h3>Price: {{featuredHome().summary?.price}}</h3>
-        <h4>Year Built: {{featuredHome().summary?.yearbuilt}}</h4>
-        <h4>Bedrooms: {{featuredHome().building?.rooms?.beds}}</h4>
-        <h4>Bathrooms: {{featuredHome().building?.rooms?.bathstotal}}</h4>
+        <h3>Price: {{homes()[0].summary?.price}}</h3>
+        <h4>Year Built: {{homes()[0].summary?.yearbuilt}}</h4>
+        <h4>Bedrooms: {{homes()[0].building?.rooms?.beds}}</h4>
+        <h4>Bathrooms: {{homes()[0].building?.rooms?.bathstotal}}</h4>
       </div>
     </div>
   </div>
@@ -24,22 +24,22 @@
   <h2 class="text-center mb-4">Popular Searches</h2>
   <div class="row">
     <div class="col-md-4">
-      <a href="/search?q=price_lt_500k" class="btn btn-outline-primary btn-block mb-2">Homes for < $500k</a>
+      <a href="/search?q=price_lt_500k" class="btn btn-outline-primary btn-block mb-2" title="Homes for < $500k">Homes for < $500k</a>
     </div>
     <div class="col-md-4">
-      <a href="/search?q=downtown_homes" class="btn btn-outline-success btn-block mb-2">Homes in the Downtown</a>
+      <a href="/search?q=downtown_homes" class="btn btn-outline-success btn-block mb-2" title="Homes in the Downtown">Homes in the Downtown</a>
     </div>
     <div class="col-md-4">
-      <a href="/search?q=new_homes" class="btn btn-outline-danger btn-block mb-2">New Homes</a>
+      <a href="/search?q=new_homes" class="btn btn-outline-danger btn-block mb-2" title="New Homes">New Homes</a>
     </div>
     <div class="col-md-4">
-      <a href="/search?q=luxury_homes" class="btn btn-outline-info btn-block mb-2">Luxury Homes</a>
+      <a href="/search?q=luxury_homes" class="btn btn-outline-info btn-block mb-2" title="Luxury Homes">Luxury Homes</a>
     </div>
     <div class="col-md-4">
-      <a href="/search?q=homes_with_pool" class="btn btn-outline-warning btn-block mb-2">Homes with a Pool</a>
+      <a href="/search?q=homes_with_pool" class="btn btn-outline-warning btn-block mb-2" title="Homes with a Pool">Homes with a Pool</a>
     </div>
     <div class="col-md-4">
-      <a href="/search?q=beachfront_homes" class="btn btn-outline-dark btn-block mb-2">Beachfront Homes</a>
+      <a href="/search?q=beachfront_homes" class="btn btn-outline-dark btn-block mb-2" title="Beachfront Homes">Beachfront Homes</a>
     </div>
   </div>
 </div>

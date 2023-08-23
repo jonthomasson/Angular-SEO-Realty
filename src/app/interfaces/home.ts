@@ -44,27 +44,31 @@ export interface Property {
     geoid: string;
     geoIdV4: {
       CO: string;
+      N1: string;
+      N2: string;
+      N4: string;
       CS: string;
       DB: string;
       SB: string;
       ZI: string;
+      PL: string;
     }
   };
   summary: {
-    price: string;
-    tinyImageUrl: string;
-    mediumImageUrl: string;
+    price?: string;
+    tinyImageUrl?: string;
+    mediumImageUrl?: string;
     propclass: string;
     propsubtype: string;
     proptype: string;
     propertyType: string;
-    yearbuilt: number;
+    yearbuilt?: number;
     propLandUse: string;
     propIndicator: string;
   };
   building: {
     size: {
-      universalsize: number;
+      universalsize?: number;
     };
     rooms: Rooms; 
   };
@@ -76,14 +80,17 @@ export interface Property {
   
 }
  interface Rooms {
-  bathstotal: number;
-  beds: number
+  bathstotal?: number;
+  beds?: number
 }
 
 export interface PexelResponse {
   page: number;
   per_page: number;
   photos: Photo[];
+  total_results: number;
+  next_page: string;
+  prev_page: string;
 }
 
 export interface Photo {

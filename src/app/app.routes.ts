@@ -4,6 +4,7 @@ import { HomeComponent } from './feature/home/home.component';
 import { SearchComponent } from './feature/search/search.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'detail/:id', component: DetailComponent }];
+  { path: 'detail/:id', component: DetailComponent },
+  { path: '**', redirectTo: 'home' },];

@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/seo-realty",
+            "outputPath": "dist/seo-realty/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -107,6 +107,62 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/seo-realty/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "seo-realty:build:development",
+              "serverTarget": "seo-realty:server:development"
+            },
+            "production": {
+              "browserTarget": "seo-realty:build:production",
+              "serverTarget": "seo-realty:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/home",
+              "/search"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "seo-realty:build:production",
+              "serverTarget": "seo-realty:server:production"
+            },
+            "development": {
+              "browserTarget": "seo-realty:build:development",
+              "serverTarget": "seo-realty:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
