@@ -15,7 +15,7 @@ export class HomesService {
   }
 
   //expose observables as private
-  homesUrl = `${this.apiBase}/property/snapshot?latitude=39.21523130910493&longitude=-75.62095642089844&radius=1&pagesize=30`;
+  homesUrl = `${this.apiBase}/property/snapshot?latitude=37.961632&longitude=-121.275604&radius=1&pagesize=30`;
   private homes$ = this.http.get<ResponsePacket>(this.homesUrl).pipe(
     map((data) => data),
     shareReplay(1),
