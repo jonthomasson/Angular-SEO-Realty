@@ -1,7 +1,7 @@
 <div class="container my-5 featured">
   <h1 class="text-center mb-5">Welcome to Super Home Deals!</h1>
 
-  <div  class="jumbotron p-4 p-md-5 text-white rounded bg-dark" [routerLink]="['/detail', homes()[0].identifier.Id]">
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" [routerLink]="['/detail', homes()[0].identifier.Id]">
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">Featured Home</h1>
       <p class="lead my-3">Discover the best deal of the week!</p>
@@ -22,24 +22,33 @@
 
 <div class="mt-5">
   <h2 class="text-center mb-4">Popular Searches</h2>
-  <div class="row">
-    <div class="col-md-4">
+  <div class="row justify-content-center">
+    <div class="col-md-3">
       <a href="/search?q=price_lt_500k" class="btn btn-outline-primary btn-block mb-2" title="Homes for < $500k">Homes for < $500k</a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <a href="/search?q=downtown_homes" class="btn btn-outline-success btn-block mb-2" title="Homes in the Downtown">Homes in the Downtown</a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <a href="/search?q=new_homes" class="btn btn-outline-danger btn-block mb-2" title="New Homes">New Homes</a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <a href="/search?q=luxury_homes" class="btn btn-outline-info btn-block mb-2" title="Luxury Homes">Luxury Homes</a>
     </div>
-    <div class="col-md-4">
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3">
       <a href="/search?q=homes_with_pool" class="btn btn-outline-warning btn-block mb-2" title="Homes with a Pool">Homes with a Pool</a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <a href="/search?q=beachfront_homes" class="btn btn-outline-dark btn-block mb-2" title="Beachfront Homes">Beachfront Homes</a>
+    </div>
+    <div class="col-md-3">
+      <a href="/search?q=garden_homes" class="btn btn-outline-secondary btn-block mb-2" title="Homes with Beautiful Gardens">Homes with Beautiful Gardens</a>
+    </div>
+    <div class="col-md-3">
+      <a href="/search?q=penthouse" class="btn btn-outline-dark btn-block mb-2" title="Penthouse Suites">Penthouse Suites</a>
     </div>
   </div>
 </div>
+
