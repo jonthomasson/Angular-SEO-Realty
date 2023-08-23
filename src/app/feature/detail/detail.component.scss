@@ -1,0 +1,19 @@
+.property-header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  max-width: 50%;
+}
+
+.display-4, .display-6 {
+  font-weight: bold;
+}
+
+.property-header span {
+  font-size: 1.2rem;
+}
+
+.home-detail-top {
+  flex-wrap: wrap; 
+}

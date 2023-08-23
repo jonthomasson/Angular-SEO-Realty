@@ -1,7 +1,21 @@
-<div class="home-detail-container mt-4">
-  <div class="text-center">
+<div class="home-detail-top d-flex justify-content-between align-items-start mt-4">
+
+  <div class="property-header bg-primary text-white p-5 flex-fill">
+    <h1 class="display-4">{{ home().address?.oneLine }}</h1>
+    <h2 class="display-6">{{ home().summary?.price }}</h2>
+    <div class="d-flex justify-content-between mt-4">
+      <span><strong>Year Built:</strong> {{ home().summary.yearbuilt }}</span>
+      <span><strong>House Size:</strong> {{ home().building.size?.universalsize }} sq.ft</span>
+      <span><strong>Property Type:</strong> {{ home().summary.propclass }}</span>
+    </div>
+  </div>
+
+  <div class="text-center flex-fill ml-4">
     <img [src]="home().summary?.mediumImageUrl" alt="Property Image" class="img-fluid rounded shadow">
   </div>
+</div>
+
+<div class="home-detail-container mt-4">
 
   <div class="mt-4 p-3 bg-light rounded shadow">
     <div *ngFor="let key of objectKeys(home())">
