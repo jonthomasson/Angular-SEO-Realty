@@ -1,1 +1,26 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Search for homes..." >
+    </div>
+  </div>
+</div>
 
+<div class="container">
+  <div class="row">
+    <div *ngFor="let home of homes()" class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
+      <div class="position-relative">
+        <a [routerLink]="['/detail', home.identifier.Id]" class="d-block">
+          <img src="{{home.summary.tinyImageUrl}}" [alt]="home.summary.propclass" class="img-fluid rounded">
+        </a>
+
+        <div class="position-absolute bottom-0 start-0 bg-black bg-opacity-25 text-white rounded-bottom">
+          <h5 class="m-2">{{ home.summary.price }}</h5>
+          <p class="m-2">{{ home.building.rooms.beds }} Bedrooms, {{ home.building.rooms.bathstotal }} Bathrooms</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

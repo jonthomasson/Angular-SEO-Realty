@@ -15,14 +15,14 @@ export class HomesService {
   }
 
   //expose observables as private
-  homesUrl = `${this.apiBase}/property/snapshot?latitude=39.21523130910493&longitude=-75.62095642089844&radius=1&pagesize=80`;
+  homesUrl = `${this.apiBase}/property/snapshot?latitude=39.21523130910493&longitude=-75.62095642089844&radius=1&pagesize=30`;
   private homes$ = this.http.get<ResponsePacket>(this.homesUrl).pipe(
     map((data) => data),
     shareReplay(1),
     catchError(this.handleError)
   );
 
-  homesPicsUrl = `https://api.pexels.com/v1/search?query=house&per_page=80&page=2`;
+  homesPicsUrl = `https://api.pexels.com/v1/search?query=house&per_page=30&page=2`;
   //using fetch to avoid cors error.
   private homePics$: Observable<PexelResponse> = from(fetch(this.homesPicsUrl, {
     headers: {
