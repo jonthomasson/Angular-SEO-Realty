@@ -43,24 +43,28 @@ export class HomesService {
 
   homes = toSignal(this.homes$, { initialValue: {} as ResponsePacket });
   homesWithPrices = computed<Property[]>(() => {
+    const photos = [...(this.homePics()?.photos ?? [])];
+
     return this.homes()?.property?.map(property => {
       const randomPrice = 200000 + Math.floor(Math.random() * 800000);
       property.summary.price = `${this.formatPrice(randomPrice)}`;
 
-      const photos = this.homePics()?.photos;
-
       if (photos && photos.length > 0) {
         const randomIndex = Math.floor(Math.random() * photos.length);
         const randomPhoto = photos[randomIndex];
+
         if (randomPhoto && randomPhoto.src && randomPhoto.src.tiny) {
           property.summary.tinyImageUrl = randomPhoto.src.tiny;
           property.summary.mediumImageUrl = randomPhoto.src.medium;
+
+          photos.splice(randomIndex, 1);
         }
       }
 
       return property;
     });
   });
+
 
   formatPrice(price: number): string {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(price);
