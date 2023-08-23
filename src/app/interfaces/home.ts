@@ -13,13 +13,6 @@ export interface ResponseStatus {
   transactionID: string;
 }
 
-export interface Home {
-  id: number;
-  tinyImage: string;
-  largeImage: string;
-  property: Property;
-}
-
 export interface Property {
   identifier: {
     Id: number;
@@ -57,6 +50,9 @@ export interface Property {
     }
   };
   summary: {
+    price: string;
+    tinyImageUrl: string;
+    mediumImageUrl: string;
     propclass: string;
     propsubtype: string;
     proptype: string;
@@ -69,10 +65,45 @@ export interface Property {
     size: {
       universalsize: number;
     };
-    rooms: Record<string, unknown>; // Since rooms is an empty object, I've used a generic record type here
+    rooms: Rooms; 
   };
   vintage: {
     lastModified: string;
     pubDate: string;
   };
+
+  
+}
+ interface Rooms {
+  bathstotal: number;
+  beds: number
+}
+
+export interface PexelResponse {
+  page: number;
+  per_page: number;
+  photos: Photo[];
+}
+
+export interface Photo {
+  id: number;
+  width: number;
+  height: number;
+  url: string;
+  photographer: string;
+  photographer_url: string;
+  photographer_id: number;
+  avg_color: string;
+  src: {
+    original: string;
+    large2x: string;
+    large: string;
+    medium: string;
+    small: string;
+    portrait: string;
+    landscape: string;
+    tiny: string;
+  };
+  liked: boolean;
+  alt: string;
 }

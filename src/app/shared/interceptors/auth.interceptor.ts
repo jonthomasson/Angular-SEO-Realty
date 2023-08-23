@@ -18,7 +18,8 @@ export class AuthInterceptor implements HttpInterceptor {
     //console.log(environment.ATTOM_API_KEY);
     const apiKeyRequest = request.clone({
       setHeaders: {
-        APIKey: environment.ATTOM_API_KEY
+        APIKey: environment.ATTOM_API_KEY,
+        Authorization: environment.PEXELS_API_KEY
       }
     });
     
