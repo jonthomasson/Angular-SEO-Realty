@@ -1,24 +1,26 @@
 <div class="container my-5 featured">
   <h1 class="text-center mb-5">Welcome to Super Home Deals!</h1>
-
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" [routerLink]="['/detail', homes()[0].identifier.Id]">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">Featured Home</h1>
-      <p class="lead my-3">Discover the best deal of the week!</p>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <img src="{{homes()[0].summary?.tinyImageUrl}}" alt="Featured Home" class="img-fluid rounded">
+  <a [routerLink]="['/detail', homes()[0].identifier.Id]">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Featured Home</h1>
+        <p class="lead my-3">Discover the best deal of the week!</p>
       </div>
-      <div class="col-md-6">
-        <h3>Price: {{homes()[0].summary?.price}}</h3>
-        <h4>Year Built: {{homes()[0].summary?.yearbuilt}}</h4>
-        <h4>Bedrooms: {{homes()[0].building?.rooms?.beds}}</h4>
-        <h4>Bathrooms: {{homes()[0].building?.rooms?.bathstotal}}</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{{homes()[0].summary?.tinyImageUrl}}" alt="Featured Home" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+          <h3>Price: {{homes()[0].summary?.price}}</h3>
+          <h4>Year Built: {{homes()[0].summary?.yearbuilt}}</h4>
+          <h4>Bedrooms: {{homes()[0].building?.rooms?.beds}}</h4>
+          <h4>Bathrooms: {{homes()[0].building?.rooms?.bathstotal}}</h4>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>
+
 
 <div class="mt-5">
   <h2 class="text-center mb-4">Popular Searches</h2>
