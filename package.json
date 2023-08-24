@@ -10,7 +10,7 @@
     "dev:ssr": "ng run seo-realty:serve-ssr",
     "serve:ssr": "node dist/seo-realty/server/main.js",
     "build:ssr": "ng build && ng run seo-realty:server",
-    "prerender": "ng run seo-realty:prerender"
+    "prerender": "ng run seo-realty:prerender --routes-file routes.txt"
   },
   "private": true,
   "dependencies": {
