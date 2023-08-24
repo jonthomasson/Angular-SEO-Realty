@@ -1,5 +1,3 @@
-/home
-/search
 /detail/16466657
 /detail/140173881
 /detail/19290205
