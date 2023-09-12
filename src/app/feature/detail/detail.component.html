@@ -1,17 +1,17 @@
 <div class="home-detail-top d-flex justify-content-between align-items-start mt-4">
 
   <div class="property-header bg-primary text-white p-5 flex-fill">
-    <h1 class="display-4">{{ home().address?.oneLine }}</h1>
-    <h2 class="display-6">{{ home().summary?.price }}</h2>
+    <h1 class="display-4">{{ home().address.oneLine }}</h1>
+    <h2 class="display-6">{{ home().summary.price }}</h2>
     <div class="d-flex justify-content-between mt-4">
       <span><strong>Year Built:</strong> {{ home().summary.yearbuilt }}</span>
-      <span><strong>House Size:</strong> {{ home().building.size?.universalsize }} sq.ft</span>
+      <span><strong>House Size:</strong> {{ home().building.size.universalsize }} sq.ft</span>
       <span><strong>Property Type:</strong> {{ home().summary.propclass }}</span>
     </div>
   </div>
 
   <div class="text-center flex-fill ml-4">
-    <img ngSrc="{{home().summary?.mediumImageUrl}}" priority [width]="home().summary?.mediumImageWidth" [height]="home().summary?.mediumImageHeight"  alt="Property Image" class="img-fluid rounded shadow">
+    <img ngSrc="{{home().summary.mediumImageUrl}}" priority [width]="home().summary.mediumImageWidth" [height]="home().summary.mediumImageHeight"  alt="Property Image" class="img-fluid rounded shadow">
   </div>
 </div>
 
