@@ -32,7 +32,18 @@ export class HomesService {
 
         if (randomPhoto && randomPhoto.src && randomPhoto.src.tiny) {
           property.summary.tinyImageUrl = randomPhoto.src.tiny;
+
+          let url = new URL(randomPhoto.src.tiny);
+          let params = new URLSearchParams(url.search);
+          property.summary.tinyImageWidth = params.get('w') || undefined;
+          property.summary.tinyImageHeight = params.get('h') || undefined;
+
           property.summary.mediumImageUrl = randomPhoto.src.medium;
+          url = new URL(randomPhoto.src.medium);
+          params = new URLSearchParams(url.search);
+          //property.summary.mediumImageWidth = params.get('w') || undefined;
+          property.summary.mediumImageWidth = '525' //width param missing from medium images for some reason;
+          property.summary.mediumImageHeight = params.get('h') || undefined;
 
           photos.splice(randomIndex, 1);
         }
@@ -41,6 +52,7 @@ export class HomesService {
       return property;
     });
   });
+
 
   formatPrice(price: number): string {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(price);

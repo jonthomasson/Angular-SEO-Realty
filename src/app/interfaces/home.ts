@@ -57,7 +57,11 @@ export interface Property {
   summary: {
     price?: string;
     tinyImageUrl?: string;
+    tinyImageWidth?: string;
+    tinyImageHeight?: string;
     mediumImageUrl?: string;
+    mediumImageWidth?: string;
+    mediumImageHeight?: string;
     propclass: string;
     propsubtype: string;
     proptype: string;

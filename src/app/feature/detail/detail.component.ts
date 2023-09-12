@@ -1,12 +1,12 @@
 import { Component, computed, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HomesService } from '../../services/homes.service';
 import { Property } from '../../interfaces/home';
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
