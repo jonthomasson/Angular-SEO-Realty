@@ -1,0 +1,10 @@
+<div class="position-relative">
+  <a [routerLink]="['/detail', home.identifier.Id]" class="d-block">
+    <img ngSrc="{{home.summary.tinyImageUrl}}" [height]="home.summary.tinyImageHeight" [width]="home.summary.tinyImageWidth" [alt]="home.summary.propclass" class="img-fluid rounded">
+  </a>
+
+  <div class="position-absolute bottom-0 start-0 bg-black bg-opacity-25 text-white rounded-bottom">
+    <h5 class="m-2">{{ home.summary.price }}</h5>
+    <p class="m-2">{{ home.building.rooms.beds }} Bedrooms, {{ home.building.rooms.bathstotal }} Bathrooms</p>
+  </div>
+</div>
